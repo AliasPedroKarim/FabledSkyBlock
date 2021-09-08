@@ -6,7 +6,7 @@
 
     <groupId>com.songoda</groupId>
     <artifactId>skyblock</artifactId>
-    <version>2.3.29</version>
+    <version>2.3.29-enderium-patch</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -122,6 +122,15 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <outputDirectory>server/plugins</outputDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -166,6 +175,11 @@
         <repository>
             <id>public</id>
             <url>https://repo.songoda.com/repository/public/</url>
+        </repository>
+        <repository>
+            <id>mvdw-software</id>
+            <name>MVdW Public Repositories</name>
+            <url>http://repo.mvdw-software.be/content/groups/public/</url>
         </repository>
     </repositories>
 
@@ -223,12 +237,8 @@
             <artifactId>MVdWPlaceholderAPI</artifactId>
             <version>2.1.1-SNAPSHOT</version>
 
-            <exclusions>
-                <exclusion>
-                    <groupId>org.spigotmc</groupId>
-                    <artifactId>spigot</artifactId>
-                </exclusion>
-            </exclusions>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/MVdWPlaceholderAPI.jar</systemPath>
         </dependency>
 
         <dependency>

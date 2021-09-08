@@ -300,7 +300,7 @@ public class BlockListeners implements Listener {
             }
 
             // Specific check for beds
-            if (!isObstructing && event.getBlock().getState().getData() instanceof org.bukkit.material.Bed) {
+                if (!isObstructing && event.getBlock().getState().getData() instanceof org.bukkit.material.Bed) {
                 BlockFace bedDirection = ((org.bukkit.material.Bed) event.getBlock().getState().getData()).getFacing();
                 org.bukkit.block.Block bedBlock = block.getRelative(bedDirection);
                 if (LocationUtil.isLocationAffectingIslandSpawn(bedBlock.getLocation(), island, world))
@@ -789,7 +789,7 @@ public class BlockListeners implements Listener {
 
         Material type = state.getType();
 
-        if (type != Material.COBBLESTONE && type != Material.STONE) return false;
+        if (type != Material.COBBLESTONE && type != Material.STONE && type != Material.BASALT) return false;
 
         GeneratorManager generatorManager = plugin.getGeneratorManager();
         if (generatorManager == null) return false;
